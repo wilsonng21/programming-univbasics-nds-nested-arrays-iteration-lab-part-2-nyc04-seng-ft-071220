@@ -1,13 +1,19 @@
+require 'pry'
+
 def find_min_in_nested_arrays(src)
   # src will be an array of arrays of integers
-    # Produce a new Array that contains the smallest number of each of the nested arrays
-
-    row_index = 0
-    min_num_in_arrays = []
-    while row_index < src.count do
-        sorted_arrays = src[row_index].sort
-        min_num_in_arrays << sorted_arrays[0]
-        row_index += 1
-    end
-    p min_num_in_arrays
+  # Produce a new Array that contains the smallest number of each of the nested arrays
+  outer_results = [] #store minimum value of each array
+  min_num_array = []
+  row_index = 0
+  while row_index < src.count do
+    binding.pry
+    outer_results = src[row_index]
+    min_num_array << outer_results.min
+    row_index += 1
+  end
+  min_num_array
 end
+
+binding.pry
+
